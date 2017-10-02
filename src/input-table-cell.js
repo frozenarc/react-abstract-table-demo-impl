@@ -20,12 +20,12 @@ class InputTableCell extends React.Component {
             }
           }}
           fluid={true}
-          defaultValue={this.props.defaultValue}
+          defaultValue={this.props.getDataValue()}
           onKeyDown={(e) => {
             e.stopPropagation();
           }}
           onBlur={(e) => {
-            this.props.dataFuncs.setDataValue(this.props.rowIdx, this.props.colIdx, this.inputRef.value);
+            this.props.setDataValue(this.inputRef.value);
           }}
         />
       </Table.Cell>

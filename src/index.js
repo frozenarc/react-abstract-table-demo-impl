@@ -67,11 +67,9 @@ const renderEditableTableCell = (dataFuncs, stateFuncs, getTableCellProps) => (r
     && tableCell.getTable().getState().editing) {
     return (
       <InputTableCell
-        dataFuncs={dataFuncs}
-        rowIdx={rowIdx}
-        colIdx={colIdx}
         tableCellProps={getTableCellProps(rowIdx, colIdx, tableCell)}
-        defaultValue={dataFuncs.getDataValue(rowIdx, colIdx)} />
+        setDataValue={(value) => { dataFuncs.setDataValue(rowIdx, colIdx, value); }}
+        getDataValue={() => dataFuncs.getDataValue(rowIdx, colIdx)} />
     );
   } else {
     return (
