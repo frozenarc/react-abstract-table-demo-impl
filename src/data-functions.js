@@ -30,6 +30,10 @@ export const getDataValue = (data) => (rowIdx, colIdx) => {
   return data.rows[rowIdx][getColumnName(data)(colIdx)];
 };
 
+export const setDataValue = (data) => (rowIdx, colIdx, value) => {
+  data.rows[rowIdx][getColumnName(data)(colIdx)] = value;
+}
+
 export const getDataFunctions = (data) => {
   return {
       getHeaderRowCount: getHeaderRowCount(data),
@@ -39,6 +43,7 @@ export const getDataFunctions = (data) => {
       getHeaderValue: getHeaderValue(data),
       getHeaderProperty: getHeaderProperty(data),
       getColumnName: getColumnName(data),
-      getDataValue: getDataValue(data)
+      getDataValue: getDataValue(data),
+      setDataValue: setDataValue(data)
   }
 }
