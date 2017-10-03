@@ -26,6 +26,9 @@ export const getDataCellCount = (data) => (rowIdx) => {
   return getHeaderCellCount(data)(getHeaderRowCount(data)() - 1);
 };
 
+/*
+The function is required for `Rendering` module and may required for other module too.
+*/
 export const getHeaderValue = (data) => (rowIdx, colIdx) => {
   return data.columnRows[rowIdx][colIdx].name;
 };

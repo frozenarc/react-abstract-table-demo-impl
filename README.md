@@ -1,4 +1,4 @@
-# Demo implementation of `react-abstract-table`
+# Demo implementation of [`react-abstract-table`](https://github.com/frozenarc/react-abstract-table)
 
 
 * Rendering: `renderer-functions.js` represents rendering module using `semantic-ui-react`.
