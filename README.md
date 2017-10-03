@@ -1,5 +1,16 @@
-# Demo implementation of [`react-abstract-table`](https://github.com/frozenarc/react-abstract-table)
+# Demo implementation of [react-abstract-table](https://github.com/frozenarc/react-abstract-table)
 
+### To run the demo
+
+* Clone this repo
+* Run `npm install`
+* Run `npm run start`
+
+### Link to npm page
+
+[react-abstract-table](https://www.npmjs.com/package/react-abstract-table)
+
+### Modules
 
 * Rendering: `renderer-functions.js` represents rendering module using `semantic-ui-react`.
 * Data management: `data-functions.js` represents data management module using data defined in `sample-data.js`.
