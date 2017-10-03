@@ -11,5 +11,6 @@ export default {
   selected: false,
   editing: false,
   rowIdx: null,
-  colIdx: null
+  colIdx: null,
+  editing: false
 };
