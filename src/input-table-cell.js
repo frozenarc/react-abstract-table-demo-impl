@@ -20,12 +20,20 @@ class InputTableCell extends React.Component {
             }
           }}
           fluid={true}
-          defaultValue={this.props.getDataValue()}
+          defaultValue={this.props.dataFuncs.getDataValue(this.props.rowIdx, this.props.colIdx)}
           onKeyDown={(e) => {
             e.stopPropagation();
+            if(e.keyCode === 13) {
+              this.props.dataFuncs.setDataValue(this.props.rowIdx, this.props.colIdx, this.inputRef.value);
+              this.props.tableCell.getTable().setState(this.props.stateFuncs.getClonedState({
+                rowIdx: this.props.rowIdx,
+                colIdx: this.props.colIdx,
+                click: true, editing: false
+              }));
+            }
           }}
           onBlur={(e) => {
-            this.props.setDataValue(this.inputRef.value);
+            this.props.dataFuncs.setDataValue(this.props.rowIdx, this.props.colIdx, this.inputRef.value);
           }}
         />
       </Table.Cell>

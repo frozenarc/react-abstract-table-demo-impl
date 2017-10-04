@@ -16,11 +16,18 @@ The function returns event handler for `onKeyDown` event would occur on table.
 */
 const onKeyDownTable = (dataFuncs, stateFuncs) => (table) => (e) => {
   if(stateFuncs.isClicked(table.getState())) {
-    const nextCell = getNextCell(e,
-      dataFuncs.getDataRowCount(),
-      dataFuncs.getDataCellCount(),
-      table.getState().rowIdx, table.getState().colIdx);
-    table.setState(stateFuncs.getClonedState({ ...nextCell, click: true }));
+    if(e.keyCode === 13) {
+      table.setState(stateFuncs.getClonedState({
+        rowIdx: table.getState().rowIdx,
+        colIdx: table.getState().colIdx,
+        click: true, editing: true
+      }));
+
+    } else {
+      const nextCell = getNextCell(e, dataFuncs.getDataRowCount(), dataFuncs.getDataCellCount(),
+        table.getState().rowIdx, table.getState().colIdx);
+      table.setState(stateFuncs.getClonedState({ ...nextCell, click: true }));
+    }
   }
 };
 

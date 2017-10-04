@@ -4,13 +4,14 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack ./src/index.js"
   },
   "author": "Manan V. Panchal <mananvpanchal@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "react": "^15.5.4",
-    "react-abstract-table": "^1.0.4",
+    "react-abstract-table": "^1.0.6",
     "react-dom": "^15.5.4",
     "semantic-ui-react": "^0.74.2"
   },

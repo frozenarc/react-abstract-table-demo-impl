@@ -64,9 +64,13 @@ export const renderTableCell = (dataFuncs, stateFuncs, getTableCellProps) => (ro
   if(stateFuncs.isCellEditing(tableCell.getTable().getState(), rowIdx, colIdx)) {
     return (
       <InputTableCell
+        dataFuncs={dataFuncs}
+        stateFuncs={stateFuncs}
         tableCellProps={getTableCellProps(rowIdx, colIdx, tableCell)}
-        setDataValue={(value) => { dataFuncs.setDataValue(rowIdx, colIdx, value); }}
-        getDataValue={() => dataFuncs.getDataValue(rowIdx, colIdx)} />
+        tableCell={tableCell}
+        rowIdx={rowIdx}
+        colIdx={colIdx}
+      />
     );
   } else {
     return (

@@ -32,6 +32,14 @@ const getTableCellProps = (dataFuncs, stateFuncs, eventFuncs) => (rowIdx, colIdx
 
 ReactDOM.render(
   <div>
+    <div>
+      <ul>
+        <li>Click on cell to select it. Move selection to other cells using arrow and tab key.</li>
+        <li>Double click on cell to start editing. Click outside of cell to commit your changes.</li>
+        <li>Hit 'Enter' on cell to start editing and hit it again to commit your changes.</li>
+        <li>You can extends this even more.</li>
+      </ul>
+    </div>
     <Table
       getDataRowCount={dataFuncs.getDataRowCount}
       getDataCellCount={dataFuncs.getDataCellCount}
