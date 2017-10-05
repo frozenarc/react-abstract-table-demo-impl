@@ -17,7 +17,12 @@ const eventFuncs = getEventFunctions(dataFuncs, stateFuncs);
 
 const getTableProps = (dataFuncs, stateFuncs, eventFuncs) => (table) => {
   return {
-    celled: true,
+    ref: (node) => {
+      if(node) {
+        table.setInfo("tableRef", node);
+      }
+    },
+    className: "ui table celled",
     tabIndex: 0,
     onKeyDown: eventFuncs.onKeyDownTable(table)
   };
@@ -25,7 +30,7 @@ const getTableProps = (dataFuncs, stateFuncs, eventFuncs) => (table) => {
 
 const getTableCellProps = (dataFuncs, stateFuncs, eventFuncs) => (rowIdx, colIdx, tableCell) => {
   return {
-    negative: stateFuncs.isCellSelected(tableCell.getTable().getState(), rowIdx, colIdx),
+    className: (stateFuncs.isCellSelected(tableCell.getTable().getState(), rowIdx, colIdx) ? "negative" : null),
     onClick: eventFuncs.onClickCell(rowIdx, colIdx, tableCell)
   };
 };

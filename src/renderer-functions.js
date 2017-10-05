@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
 import InputTableCell from './input-table-cell';
 
 
@@ -17,9 +16,9 @@ header at some some header row index and header column index, etc. And it can be
 */
 export const renderTable = (dataFuncs, stateFuncs, getTableProps) => (children, table) => {
   return (
-    <Table {...getTableProps(table)}>
+    <table {...getTableProps(table)}>
       {children}
-    </Table>
+    </table>
   );
 };
 
@@ -32,9 +31,9 @@ and returns a function which can be pass to `Table` component.
 */
 export const renderTableBody = (dataFuncs, stateFuncs, getTableBodyProps) => (children, tableBody) => {
   return (
-    <Table.Body {...getTableBodyProps(tableBody)}>
+    <tbody {...getTableBodyProps(tableBody)}>
       {children}
-    </Table.Body>
+    </tbody>
   );
 };
 
@@ -47,9 +46,9 @@ and returns a function which can be pass to `Table` component.
 */
 export const renderTableRow = (dataFuncs, stateFuncs, getTableRowProps) => (rowIdx, children, tableRow) => {
   return (
-    <Table.Row {...getTableRowProps(rowIdx, tableRow)}>
+    <tr {...getTableRowProps(rowIdx, tableRow)}>
       {children}
-    </Table.Row>
+    </tr>
   );
 };
 
@@ -74,9 +73,9 @@ export const renderTableCell = (dataFuncs, stateFuncs, getTableCellProps) => (ro
     );
   } else {
     return (
-      <Table.Cell {...getTableCellProps(rowIdx, colIdx, tableCell)}>
+      <td {...getTableCellProps(rowIdx, colIdx, tableCell)}>
         {dataFuncs.getDataValue(rowIdx, colIdx)}
-      </Table.Cell>
+      </td>
     );
   }
 };
@@ -90,9 +89,9 @@ and returns a function which can be pass to `Table` component.
 */
 export const renderTableHeader = (dataFuncs, stateFuncs, getTableHeaderProps) => (children, tableHeader) => {
   return (
-    <Table.Header {...getTableHeaderProps(tableHeader)}>
+    <thead {...getTableHeaderProps(tableHeader)}>
       {children}
-    </Table.Header>
+    </thead>
   );
 };
 
@@ -105,9 +104,9 @@ and returns a function which can be pass to `Table` component.
 */
 export const renderTableHeaderRow = (dataFuncs, stateFuncs, getTableHeaderRowProps) => (rowIdx, children, tableHeaderRow) => {
   return (
-    <Table.Row {...getTableHeaderRowProps(rowIdx, tableHeaderRow)}>
+    <tr {...getTableHeaderRowProps(rowIdx, tableHeaderRow)}>
       {children}
-    </Table.Row>
+    </tr>
   );
 };
 
@@ -120,8 +119,8 @@ and returns a function which can be pass to `Table` component.
 */
 export const renderTableHeaderCell = (dataFuncs, stateFuncs, getTableHeaderCellProps) => (rowIdx, colIdx, tableHeaderCell) => {
   return (
-    <Table.HeaderCell {...getTableHeaderCellProps(rowIdx, colIdx, tableHeaderCell)}>
+    <th {...getTableHeaderCellProps(rowIdx, colIdx, tableHeaderCell)}>
       {dataFuncs.getHeaderValue(rowIdx, colIdx)}
-    </Table.HeaderCell>
+    </th>
   );
 };

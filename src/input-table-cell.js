@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Table, Input } from 'semantic-ui-react';
-
 class InputTableCell extends React.Component {
 
   constructor() {
@@ -11,15 +9,15 @@ class InputTableCell extends React.Component {
 
   render() {
     return (
-      <Table.Cell {...this.props.tableCellProps} style={{ padding: 0 }}>
-        <Input
+      <td {...this.props.tableCellProps} style={{ padding: 0 }}>
+        <div className="ui input fluid">
+        <input
           ref={(node) => {
             if(node) {
-              this.inputRef = node.inputRef;
+              this.inputRef = node;
               node.focus();
             }
           }}
-          fluid={true}
           defaultValue={this.props.dataFuncs.getDataValue(this.props.rowIdx, this.props.colIdx)}
           onKeyDown={(e) => {
             e.stopPropagation();
@@ -30,13 +28,15 @@ class InputTableCell extends React.Component {
                 colIdx: this.props.colIdx,
                 click: true, editing: false
               }));
+              this.props.tableCell.getTable().getInfo("tableRef").focus();
             }
           }}
           onBlur={(e) => {
             this.props.dataFuncs.setDataValue(this.props.rowIdx, this.props.colIdx, this.inputRef.value);
           }}
         />
-      </Table.Cell>
+      </div>
+    </td>
     );
   }
 }
